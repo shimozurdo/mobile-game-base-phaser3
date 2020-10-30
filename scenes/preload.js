@@ -9,7 +9,7 @@ export default class Preload extends Phaser.Scene {
     sceneStopped = false;
 
     constructor() {
-        super({ key: "preload" })
+        super({ key: "preload" });
     }
 
     preload() {
@@ -17,10 +17,10 @@ export default class Preload extends Phaser.Scene {
         this.load.bitmapFont("atarismooth", "assets/fonts/atari-smooth.png", "assets/fonts/atari-smooth.xml");
         // Images
         this.load.image("logo", "assets/images/logo.png");
-        this.load.image("guide", "assets/images/640x960-guide.png");       
+        this.load.image("guide", "assets/images/640x960-guide.png");
 
-        this.width = this.game.screenSize.width;
-        this.height = this.game.screenSize.height;
+        this.width = this.sys.game.canvas.width;
+        this.height = this.sys.game.canvas.height;
 
         this.handlerScene = this.scene.get("handler");
 
@@ -73,8 +73,7 @@ export default class Preload extends Phaser.Scene {
             assetText.setText("Loading asset: " + file.key);
         });
 
-        this.load.on("complete", () => {
-            this.add.image(this.width / 2, this.height / 2, "logo");
+        this.load.on("complete", () => {            
             progressBar.destroy();
             progressBox.destroy();
             loadingText.destroy();
@@ -84,16 +83,17 @@ export default class Preload extends Phaser.Scene {
                 delay: 2000,
                 callback: () => {
                     this.sceneStopped = true;
-                    this.scene.stop("preload");                   
+                    this.scene.stop("preload");
                     this.handlerScene.cameras.main.setBackgroundColor("#f50057");
                     this.handlerScene.launchScene("title")
                 },
                 loop: false
             });
-        });        
+        });
     }
 
     create() {
+        this.add.image(this.game.screenSize.width / 2, this.game.screenSize.height / 2, "logo").setOrigin(.5);
         this.add.image(0, 0, "guide").setOrigin(0).setDepth(1);
         this.scale.on("resize", this.resize, this);
         const width = this.scale.gameSize.width;
