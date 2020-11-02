@@ -29,7 +29,11 @@ const config = {
     dom: {
         createContainer: true
     },
-    scene: [Handler, Preload, Title, Hud]
+    scene: [Handler, Preload, Title, Hud],
+    physics: {
+        default: 'arcade',
+        arcade: { debug: true }
+    },
 };
 
 const game = new Phaser.Game(config);
