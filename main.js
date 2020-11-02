@@ -1,7 +1,8 @@
 import Handler from "./scenes/handler.js"
 import Title from "./scenes/title.js"
 import Preload from "./scenes/preload.js"
-import Hud from "./scenes/hud.js";
+import Hub from "./scenes/hub.js";
+import Menu from "./scenes/menu.js";
 
 const maxSizeWidthScreen = 1920;
 const maxSizeHeightScreen = 1080;
@@ -11,6 +12,7 @@ const sizeWidthScreen = 640;
 const sizeHeightScreen = 960;
 
 const config = {
+    version: "1.0.2",
     type: Phaser.AUTO,
     scale: {
         mode: Phaser.Scale.RESIZE,
@@ -29,7 +31,7 @@ const config = {
     dom: {
         createContainer: true
     },
-    scene: [Handler, Preload, Title, Hud],
+    scene: [Handler, Preload, Title, Hub, Menu],
     physics: {
         default: 'arcade',
         arcade: { debug: true }

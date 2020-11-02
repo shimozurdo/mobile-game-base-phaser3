@@ -1,5 +1,4 @@
-import { createAnimation } from "../utils/scene.js";
-import CONST from "../constant.js";
+import constant from "../constant.js";
 
 export default class Preload extends Phaser.Scene {
 
@@ -18,7 +17,10 @@ export default class Preload extends Phaser.Scene {
         // Images
         this.load.image("logo", "assets/images/logo.png");
         this.load.image("guide", "assets/images/640x960-guide.png");
-
+        this.load.image("button", "assets/images/button.png");
+        this.load.image("button-square", "assets/images/button-square.png");
+        this.load.image("counterclockwide-arrow", "assets/images/counterclockwide-arrow.png");
+        //---------------------------------------------------------------------->
         this.width = this.sys.game.canvas.width;
         this.height = this.sys.game.canvas.height;
 
@@ -73,7 +75,7 @@ export default class Preload extends Phaser.Scene {
             assetText.setText("Loading asset: " + file.key);
         });
 
-        this.load.on("complete", () => {            
+        this.load.on("complete", () => {
             progressBar.destroy();
             progressBox.destroy();
             loadingText.destroy();
@@ -84,8 +86,8 @@ export default class Preload extends Phaser.Scene {
                 callback: () => {
                     this.sceneStopped = true;
                     this.scene.stop("preload");
-                    this.handlerScene.cameras.main.setBackgroundColor("#f50057");
-                    this.handlerScene.launchScene("title")
+                    this.handlerScene.cameras.main.setBackgroundColor(constant.color.TITLE);
+                    this.handlerScene.launchScene("title");
                 },
                 loop: false
             });
