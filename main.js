@@ -1,51 +1,52 @@
-import Handler from "./scenes/handler.js"
-import Title from "./scenes/title.js"
-import Preload from "./scenes/preload.js"
-import Hub from "./scenes/hub.js";
-import Menu from "./scenes/menu.js";
+import Handler from './scenes/handler.js'
+import Title from './scenes/title.js'
+import Preload from './scenes/preload.js'
+import Hub from './scenes/hub.js'
 
-const maxSizeWidthScreen = 1920;
-const maxSizeHeightScreen = 1080;
-const minSizeWidthScreen = 320;
-const minSizeHeightScreen = 480;
-const sizeWidthScreen = 640;
-const sizeHeightScreen = 960;
+// Aspect Ratio 16:9 - Portrait
+const MAX_SIZE_WIDTH_SCREEN = 1920
+const MAX_SIZE_HEIGHT_SCREEN = 1080
+const MIN_SIZE_WIDTH_SCREEN = 270
+const MIN_SIZE_HEIGHT_SCREEN = 480
+const SIZE_WIDTH_SCREEN = 540
+const SIZE_HEIGHT_SCREEN = 960
 
 const config = {
-    version: "1.0.2",
     type: Phaser.AUTO,
     scale: {
         mode: Phaser.Scale.RESIZE,
-        parent: "game",
-        width: sizeWidthScreen,
-        height: sizeHeightScreen,
+        parent: 'game',
+        width: SIZE_WIDTH_SCREEN,
+        height: SIZE_HEIGHT_SCREEN,
         min: {
-            width: minSizeWidthScreen,
-            height: minSizeHeightScreen
+            width: MIN_SIZE_WIDTH_SCREEN,
+            height: MIN_SIZE_HEIGHT_SCREEN
         },
         max: {
-            width: maxSizeWidthScreen,
-            height: maxSizeHeightScreen
+            width: MAX_SIZE_WIDTH_SCREEN,
+            height: MAX_SIZE_HEIGHT_SCREEN
         }
     },
     dom: {
         createContainer: true
     },
-    scene: [Handler, Preload, Title, Hub, Menu],
-    physics: {
-        default: 'arcade',
-        arcade: { debug: true }
-    },
-};
+    scene: [Handler, Hub, Preload, Title]
 
-const game = new Phaser.Game(config);
-
-game.screenSize = {
-    maxWidth: maxSizeWidthScreen,
-    minHeight: maxSizeHeightScreen,
-    minWidth: minSizeWidthScreen,
-    maxHeight: minSizeHeightScreen,
-    width: sizeWidthScreen,
-    height: sizeHeightScreen
 }
 
+const game = new Phaser.Game(config)
+
+// Global
+game.debugMode = true
+game.embedded = false // game is embedded into a html iframe/object
+
+game.screenBaseSize = {
+    maxWidth: MAX_SIZE_WIDTH_SCREEN,
+    maxHeight: MAX_SIZE_HEIGHT_SCREEN,
+    minWidth: MIN_SIZE_WIDTH_SCREEN,
+    minHeight: MIN_SIZE_HEIGHT_SCREEN,
+    width: SIZE_WIDTH_SCREEN,
+    height: SIZE_HEIGHT_SCREEN
+}
+
+game.orientation = "portrait"

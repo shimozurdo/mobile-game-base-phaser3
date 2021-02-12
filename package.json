@@ -1,0 +1,24 @@
+{
+  "name": "mobile-game-base-phaser3",
+  "version": "1.0.0",
+  "description": "Base project for make a mobile game using Phaser 3",
+  "main": "main.js",
+  "scripts": {
+    "start": "live-server --open=index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimozurdo/mobile-game-base-phaser3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shimozurdo/mobile-game-base-phaser3/issues"
+  },
+  "homepage": "https://github.com/shimozurdo/mobile-game-base-phaser3#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
