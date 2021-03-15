@@ -7,14 +7,16 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='icon' href='favicon.ico' />
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background: #000;
+            box-sizing: border-box;
         }
 
-        * {
-            box-sizing: border-box;
+        body {
+            background: #000;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
         }
     </style>
     <title>Game</title>
@@ -22,7 +24,7 @@
 
 <body>
     <div id='game'></div>
-    <script src='//cdn.jsdelivr.net/npm/phaser@3.52.0/dist/phaser.min.js'></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.53.1/dist/phaser.min.js"></script>
     <script src='main.js' type='module'></script>
 </body>
 

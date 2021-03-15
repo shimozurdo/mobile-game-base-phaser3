@@ -29,8 +29,7 @@ export default class Hub extends Phaser.Scene {
         this.creditsTxt = this.add.text(this.canvasWidth / 2, this.canvasHeight - 22, 'Shimozurdo Games 2021', { fontFamily: 'Arial', fontSize: '18px', color: '#000', }).setOrigin(.5).setDepth(1)
     }
 
-    create() {
-        const { canvasWidth, canvasHeight } = this
+    create() {        
 
         let posItemHubBase = 32
         this.quitBtn = this.add.image(posItemHubBase, posItemHubBase, "quit").setOrigin(.5).setDepth(1).setInteractive({ cursor: "pointer" })
@@ -48,7 +47,7 @@ export default class Hub extends Phaser.Scene {
 
             this.soundBtn.setFrame(1)
         } else {
-            this.music.play()
+            //this.music.play()
             this.soundBtn.setFrame(0)
         }
 

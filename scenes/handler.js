@@ -42,7 +42,7 @@ export default class Handler extends Phaser.Scene {
             this.parent.setSize(width, height)
             this.sizer.setSize(width, height)
 
-            // updateCamera - Improve the next code
+            // updateCamera - TO DO: Improve the next code because it is duplicated
             const camera = this.cameras.main
             const scaleX = this.sizer.width / this.game.screenBaseSize.width
             const scaleY = this.sizer.height / this.game.screenBaseSize.height
